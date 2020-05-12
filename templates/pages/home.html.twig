@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title 'Agence Montivilliers' %}
+
+
+
+{% block body %}
+	<div class="jumbotron text-center">
+		<h1>Agence Montivilliers</h1>
+		<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem iploremipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+		</p>
+	</div>
+
+	<div class="container">
+		<h2>Les derniers biens<h2>
+				<div class="row flex">
+					{% for property in properties  %}
+						<div class="col-3">
+							<div class="card">
+								<img src="..." class="card-img-top" alt="...">
+								<div class="card-body">
+									<a href="{{ path('property.show', {id: property.id}) }}" class="h4">{{ property.title }}</a>
+									<p class="h5 mt-4">
+										{{ property.city }}
+										{{ property.postalCode }}
+									</p>
+									<div class="text-primary">{{ property.getFormattedPrice }} €</div>
+
+								</div>
+							</div>
+
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endblock %}
